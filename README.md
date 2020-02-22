@@ -1,24 +1,51 @@
-# README
+# user
+| Column       | Type   | Options |
+| address      | string |         |
+| phone_number | bigInt |         |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## assosiation
+has_one :card
+has_many :projects
+has_many :messages
 
-Things you may want to cover:
 
-* Ruby version
+# card
+| Column      | Type    | Options                |
+| uid         | integer | null: false            |
+| card_id     | integer | null: false            |
+| costomer_id | integer | null: false            |
+| user_id     | integer | null: false,references |
 
-* System dependencies
+## assosiation
+belongs_to :user
 
-* Configuration
 
-* Database creation
+# project
+| Column  | Type    | Options               |
+| title   | string  | null: false           |
+| text    | text    | null: false           |
+| price   | integer | null: false           |
+| like    | integer |                       |
+| user_id | bigInt  | null:false,references |
 
-* Database initialization
+## assosiation
+belongs_to :user
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+# message
+| Column  | Type    | Options                |
+| content | string  |                        |
+| image   | string  |                        |
+| user_id | integer | null: false,references |
 
-* Deployment instructions
+## assosiation
+belongs_to :user
 
-* ...
+
+# tag
+| Column     | Type    | Options                 |
+| name       | string  | null: false             |
+| project_id | integer | null: false, references |
+
+## assosiation
+belongs_to :project
