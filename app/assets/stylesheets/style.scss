@@ -1,0 +1,18 @@
+%responcive {
+  // background-color: red;
+  padding: 20px 17%;
+
+  // @media (max-width: 1280px){
+    // padding: 20px 10%;
+    // background-color:blue;
+  // }
+  // @media (max-width: 768px) {
+    // padding: 20px 5%;
+    // background-color:green;
+//   }
+}
+
+// 下記を適用すると、全ての要素に上記が適用される
+.body{
+  @extend %responcive;
+  }

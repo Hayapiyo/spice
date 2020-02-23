@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8"}/
+    %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0", name: "viewport"}
+    %title Spice
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    .main-header
+      .main-header__up
+        L-Works
+      .main-header__under
+        = link_to root_path do
+          HOME
+        |
+        = link_to root_path do
+          マイページ
+        |
+        = link_to root_path do
+          メッセージ
+
+    .body
+      = yield
+
+    .footer
+      .footer__content1
+        お問い合わせ
+      .footer__copyright
+        ©︎L・Works
