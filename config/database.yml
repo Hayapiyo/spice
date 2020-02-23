@@ -47,8 +47,17 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: spice_production
+#   username: spice
+#   password: <%= ENV['SPICE_DATABASE_PASSWORD'] %>
+
+
 production:
-  <<: *default
-  database: spice_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: message-board_production
   username: spice
   password: <%= ENV['SPICE_DATABASE_PASSWORD'] %>
