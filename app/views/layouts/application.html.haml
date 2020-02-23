@@ -13,15 +13,24 @@
     .main-header
       .main-header__up
         L-Works
-      .main-header__under
-        = link_to root_path do
-          HOME
-        |
-        = link_to root_path do
-          マイページ
-        |
-        = link_to root_path do
-          メッセージ
+
+      - if user_signed_in?
+        .main-header__under
+          .main-header__under__home
+            = link_to root_path do
+              HOME
+              |
+          .main-header__under__mypage
+            = link_to root_path do
+              マイページ
+              |
+          .main-header__under__message
+            = link_to root_path do
+              メッセージ
+              |
+          .main-header__under__edit
+            = link_to edit_user_path(current_user) do
+              ユーザー情報変更
 
     .body
       = yield
