@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :groups do
     resources :messages
   end
-  resources :projects
+  resources :projects do
+    member do
+      put "contract"
+    end
+  end
 end

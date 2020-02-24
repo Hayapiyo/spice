@@ -11,7 +11,7 @@
         = f.label :カテゴリー
         = f.collection_select :category_id, @categories, :id, :name, {include_blank: "---"}, {id: "category", class: "category"}
 
-      .container__form__title
+      .container__form__description
         = f.label :仕事内容
         = f.text_field :description, placeholder: "依頼したいお仕事内容をご記入ください"
       -# = f.label :submit class: 'container__form__submit' do

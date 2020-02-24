@@ -9,7 +9,19 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    Project.create!(project_params)
+    Project.create(project_params)
+    redirect_to root_path
+  end
+
+  def show
+    @project = Project.find(params[:id])
+    @category = Category.find(@project.category_id)
+  end
+
+  def contract
+    @project = Project.find(params[:id])
+    @project.contractor_id = current_user.id
+    @project.save if @project.user_id != current_user.id && @project.contractor_id != null
     redirect_to root_path
   end
 

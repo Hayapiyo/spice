@@ -1,0 +1,25 @@
+.detail
+  .detail__title
+    = @project.title
+
+  %table.detail__table
+    %tr.detail__table__category
+      %th
+        カテゴリー
+      %td
+        = @category.name
+    %tr.detail__table__price
+      %th
+        金額
+      %td
+        = "#{@project.price} 円"
+
+    %tr.detail__table__description
+      %th
+        詳細
+      %td
+        = @project.description
+
+  = link_to contract_project_path, method: :put do
+    .work-submit
+      応募する

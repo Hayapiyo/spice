@@ -1,0 +1,59 @@
+.detail {
+  &__title {
+    font-size: 20px;
+    color: $pink;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  &__table {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    &__category {
+      td {
+        // text-align: center;
+      }
+    }
+    &__price {
+      td {
+        // text-align: center;
+      }
+    }
+    &__description {
+      td {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+
+th {
+  background-color: #F9F9F9;
+  border: solid 1px $gray;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+td {
+  border: solid 1px $gray;
+  padding: 10px;
+  width: 500px;
+}
+
+.work-submit {
+  background-color: $pink;
+  color: $white;
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin: 0 auto;
+
+  a {
+    color: $white;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}

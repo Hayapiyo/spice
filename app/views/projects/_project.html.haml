@@ -1,12 +1,12 @@
 .project
   .project__left
     .project__left__title
-      = link_to "#" do
+      = link_to project_path(project) do
         = project.title
     .project__left__description
       = project.description
     .project__left__user
-      = "#{project.user.name} 円"
+      = "#{project.user.name} さん"
   .project__right
     .project__right__price
       = "#{project.price} 円"
