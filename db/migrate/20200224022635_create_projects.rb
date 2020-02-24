@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.integer :contractor_id
+      t.string :price
       t.references :category, foreign_key: true
       t.references :user, foreign_key: true
       t.timestamps

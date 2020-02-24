@@ -1,0 +1,26 @@
+.container
+  = form_with(model: @project, local: true) do |f|
+    .container__header
+      依頼内容
+    .container__form
+      .container__form__title
+        = f.label :タイトル
+        = f.text_field :title, placeholder: "タイトルを入力してください"
+
+      .container__form__category
+        = f.label :カテゴリー
+        = f.collection_select :category_id, @categories, :id, :name, {include_blank: "---"}, {id: "category", class: "category"}
+
+      .container__form__title
+        = f.label :仕事内容
+        = f.text_field :description, placeholder: "依頼したいお仕事内容をご記入ください"
+      -# = f.label :submit class: 'container__form__submit' do
+
+      .container__form__price
+        = f.label :依頼金額
+        %br
+        = f.text_field :price
+        円
+
+      .container__form__submit
+        = f.submit "依頼する", class: "submit-btn"

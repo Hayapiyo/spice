@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_022635) do
     t.string "title"
     t.text "description"
     t.integer "contractor_id"
+    t.string "price"
     t.bigint "category_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

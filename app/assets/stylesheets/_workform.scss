@@ -1,0 +1,56 @@
+.container__header {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: $pink;
+  margin-bottom: 20px;
+
+}
+
+#project_title {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  border: solid 1px $gray;
+  border-radius: 5px;
+}
+
+#project_description {
+  margin-bottom: 20px;
+  width: 100%;
+  min-height: 300px;
+  border: solid 1px $gray;
+  border-radius: 5px;
+}
+
+#project_price {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 50px;
+  border: solid 1px $gray;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  // margin-top: 15px;
+  // margin: 0 auto;
+  height: 50px;
+  width: 200px;
+  background-color: $pink;
+  color: $white;
+  font-weight: bold;
+}
+
+.container__form__submit {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.category {
+  width: 100%;
+  height: 50px;
+  background-color: $white;
+  border: solid 1px $gray;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
