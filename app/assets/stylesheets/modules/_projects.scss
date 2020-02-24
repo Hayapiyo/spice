@@ -16,6 +16,10 @@
     height: 60px;
     line-height: 60px;
     padding: 0 17%;
+
+    a {
+      color :$pink;
+    }
   }
   &__under {
     // width: 100vw !important;

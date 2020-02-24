@@ -12,7 +12,8 @@
   %body
     .main-header
       .main-header__up
-        L-Works
+        = link_to root_path do
+          L-Works
 
       - if user_signed_in?
         .main-header__under
@@ -31,6 +32,10 @@
           .main-header__under__edit
             = link_to edit_user_path(current_user) do
               ユーザー情報変更
+              |
+          .main-header__work
+            = link_to new_project_path do
+              お仕事依頼
 
     .body
       = yield
