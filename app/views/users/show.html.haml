@@ -1,0 +1,25 @@
+.profile
+  .profile__left
+    .profile__left__image
+  .profile__right
+    .profile__right__introduction
+      .profile__right__introduction__title
+        プロフィール
+      .profile__right__introduction__description
+        ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+    .profile__right__projects
+      受注実績
+      - current_user.projects.each do |project|
+        .project
+          .project__left
+            .project__left__title
+              = link_to project_path(project) do
+                = project.title
+            .project__left__description
+              = project.description
+            .projectp__left__user
+              = "#{project.user.name} さん"
+          .project__right
+            .project__right__price
+              = "#{project.price} 円"
+        -# = render partial: 'projecs/project', locals: { project: project }

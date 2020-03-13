@@ -1,0 +1,288 @@
+//devise--shared
+.devise {
+  // background-color: $gray;
+  min-height: 100vh;
+//end
+
+//devise--header
+  .deviseHeader {
+    background-color: white;
+    height: 128px;
+    text-align: center;
+    .headIcon {
+      line-height: 128px;
+    }
+  }
+//end
+
+//devise--new
+  .deviseSection {
+    width: 100%;
+    .inner {
+      margin: 0 auto;
+      background-color: $white;
+      // width: 700px;
+      &--narrow {
+        width: 456px;
+        .resetTitle {
+          line-height: 60px;
+          font-size: 18px;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+      .newText {
+        font-size: 14px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .title {
+        padding: 32px 16px;
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+        &--narrow {
+          padding: 40px 64px 0;
+          .deviseBtn--blue {
+            display: block;
+            height: 40px;
+            margin: 5px 0 40px 0;
+            background: $pink;
+            text-align: center;
+            width: 320px;
+            font-size: 16px;
+            line-height: 40px;
+            color: $white;
+            text-decoration: none;
+          }
+        }
+      }
+      .deviseForm {
+        border-top: 1px solid $gray;
+        padding: 64px;
+
+        .registrations-session {
+          &__facebook {
+            margin: auto;
+            display: block;
+            background-color: #385185;
+            // width: 343px;
+            height: 50px;
+            margin-top: 16px;
+            border-radius: 4px;
+            line-height: 50px;
+            color:white;
+            position: relative;
+            font-size: 14px;
+            text-align: center;
+
+            &__icon {
+              font-size: 27px;
+              position: absolute;
+              left: 15px;
+              top: 0px;
+            }
+          }
+          &__google {
+            margin: auto;
+            display: block;
+            // width: 343px;
+            height: 50px;
+            margin-top: 16px;
+            border-radius: 4px;
+            line-height: 50px;
+            border: solid 1px gray;
+            color: black;
+            position: relative;
+            font-size: 14px;
+            text-align: center;
+
+            &__icon {
+              height: 20px;
+              position: absolute;
+              left: 15px;
+              top: 15px;
+            }
+          }
+        }
+        
+        &--none {
+          padding: 0 0 40px 0;
+        }
+        .new_user {
+          max-width: 320px;
+          margin: 0 auto;
+          .deviseForm__field {
+            @include form();
+            margin: 40px 0 0;
+            &--top {
+              margin: 0;
+            }
+            label {
+              @include label();
+            }
+            .formRequired {
+              @include required();
+            }
+            .inputField {
+              @include input();
+              &--small {
+                width: 80px;
+              }
+              &__select {
+                height: 50px;
+                width: 100%;
+              }
+            }
+          }
+          .deviseForm__field-half {
+            @include form();
+            margin: 40px 0 0;
+            &--top {
+              margin: 0;
+            }
+            label {
+              @include label();
+            }
+            .formRequired {
+              @include required();
+            }
+            .inputField {
+              @include input();
+              width: 38%;
+              &--small {
+                width: 80px;
+              }
+              &__select {
+                height: 50px;
+                width: 100%;
+              }
+            }
+          }
+          .deviseForm__field-birthday {
+            @include form();
+            margin: 40px 0 0;
+            &--top {
+              margin: 0;
+            }
+            label {
+              @include label();
+            }
+            .formRequired {
+              @include required();
+            }
+            .inputField {
+              @include input();
+              &--small {
+                width: 80px;
+              }
+              &__select {
+                height: 50px;
+                width: 100%;
+              }
+            }
+            #user_profile_attributes_birthday_1i {
+              height: 48px;
+              width: 78px;
+              background-color: white;
+            }
+            #user_profile_attributes_birthday_2i {
+              height: 48px;
+              width: 78px;
+              background-color: white;
+              margin-left: 5px;
+            }
+            #user_profile_attributes_birthday_3i {
+              height: 48px;
+              width: 78px;
+              background-color: white;
+              margin-left: 5px;
+            }
+          }
+          .remember__field {
+            margin: 10px 0 0 0;
+          }
+          .deviseForm__actions {
+            .deviseBtn {
+              @include btn();
+              display: block;
+              background-color: #ea352d;
+            }
+          }
+        }
+        a {
+          display: block;
+          margin: 40px auto 0;
+          max-width: 320px;
+          text-decoration: none;
+          color: $pink;
+          font-size: 14px;
+        }
+      }
+    }
+    .confirmation_expression {
+      margin-top: 10px;
+      &__title {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__text {
+        font-size: 13px;
+      }
+    }
+    .please-text {
+      font-size: 12px;
+      color: #a6a6a6;
+    }
+    .recaptcha {
+      margin-top: 20px;
+    }
+    .cortion-text {
+      font-size: 14px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .deviseBtn {
+      @include btn();
+      display: block;
+      background-color: $pink;
+    }
+  }
+//end
+
+//devise--footer
+  .deviseFooter {
+    .inner {
+      width: 456px;
+      height: 140px;
+      margin: 0 auto;
+      padding: 40px 0;
+      text-align: center;
+      ul {
+        position: relative;
+        left: 6%;
+        @include clearfix();
+        li {
+          float: left;
+          font-size: 12px;
+          padding: 0 10px;
+          a {
+            color: $gray;
+            text-decoration: none;
+            display: inline-block;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .footerIcon {
+        margin: 40px auto 0;
+      }
+      p {
+        font-size: 10px;
+      }
+    }
+  }
+}
+//end

@@ -1,5 +1,6 @@
 @import "reset";
 @import "modules/colors";
+@import "mixin";
 @import "modules/projects";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -7,4 +8,7 @@
 @import "side-bar";
 @import "modules/user";
 @import "workform";
-@import "detail"
+@import "detail";
+@import "users";
+@import "new_user";
+@import "devise"

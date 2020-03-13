@@ -1,3 +1,88 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.profile {
+  display: flex;
+  &__left {
+    height: 100vh;
+    // background-color: red;
+    // border-right: solid 1px $gray;
+    width: 200px;
+    // padding-right: 20px;
+    &__image {
+      background-color: gray;
+      height: 200px;
+      width: 200px;
+      // margin: 0 20px 0px 0;
+    }
+  }
+
+  &__right {
+    height: 100vh;
+    margin-left: 20px;
+    // background-color: blue;
+    width: 100vw;
+    &__introduction {
+      &__title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      }
+      &__description {
+
+      }
+
+    }
+
+    &__projects {
+      margin-top: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+        .project {
+          border: solid 1px $gray;
+          min-height: 100px;
+          margin: 20px 0;
+          padding: 10px;
+          display: flex;
+    
+          &__left {
+            // background-color: blue;
+            width: 400px;
+            text-align: left;
+            border-right: dashed 1px $gray;
+    
+            &__title {
+              font-size: 16px;
+              font-weight: bold;
+              // color: $pink !important;
+    
+              a {
+                color: $pink !important;
+              }
+            }
+    
+            &__description {
+              font-size: 13px;
+              font-weight: normal;
+              padding-top: 5px;
+            }
+    
+            &__user {
+              padding-top: 10px;
+              font-size: 12px;
+              font-weight: normal;
+            }
+         }
+          &__right {
+            // background-color: green;
+            width: calc(100% - 400px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            &__price {
+              // flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+}

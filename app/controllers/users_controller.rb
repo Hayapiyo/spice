@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @projects = Project.all
+  end
+
   private
 
   def user_params

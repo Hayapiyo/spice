@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :controllers
+  devise_for :views
   devise_for :users
   root "projects#index"
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+  end
   resources :groups do
     resources :messages
   end
