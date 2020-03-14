@@ -1,21 +1,105 @@
-#account-page.account-page
-  .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Edit Account
-      %h5 アカウントの編集
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      = link_to "トップページに戻る", :back, class: 'btn'
-    .account-page__inner--right.user-form
-      = form_for(current_user) do |f|
-        .field
-          .field-label
-            = f.label :name
-          .field-input
-            = f.text_field :name, autofocus: true
-        .field
-          .field-label
-            = f.label :email
-          .field-input
-            = f.email_field :email
-        .actions
-          = f.submit "Update", class: 'btn'
+.devise
+  -# = render "devise/shared/header"
+  .deviseSection
+    .inner
+      %h2.title 会員情報入力
+      .deviseForm
+        = form_for current_user do |f|
+          -# = devise_error_messages!
+          .deviseForm__field.deviseForm__field--top
+            = f.label :名前
+            %span.formRequired 必須
+            %br/
+            = f.text_field :name, autofocus: true, autocomplete: "off", placeholder: "例）える子", class: "inputField", required: true
+          .deviseForm__field
+            = f.label :メールアドレス
+            %span.formRequired 必須
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "inputField", required: true
+        
+          .deviseForm__field
+            = f.label :パスワード
+            %span.formRequired 必須
+            %br/
+            = f.password_field :password, autocomplete: "off", placeholder: "６文字以上", class: "inputField", required: true
+          .deviseForm__field
+            = f.label :パスワード（確認）
+            %span.formRequired 必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: "６文字以上", class: "inputField", required: true
+          .deviseForm__actions
+
+
+
+
+          = f.fields_for :profile do |j|
+            .deviseForm__field
+              = j.label :電話番号
+              %span.formRequired-gray 任意
+              %br/
+              = j.text_field :phone_number, autofocus: true, placeholder: "000-0000", class: "inputField", required: true
+
+            .deviseForm__field
+              = j.label :住所
+              %span.formRequired-gray 任意
+              %br/
+              = j.text_area :address, autofocus: true, placeholder: "番地まで", class: "inputField", required: true
+
+            .deviseForm__field
+              = j.label :自己紹介
+              %span.formRequired-gray 任意
+              %br/
+              = j.text_area :introduction, autofocus: true, placeholder: "実績や週可動時間なども書くと効果的です", class: "inputField", required: true
+
+            .deviseForm__field
+              = j.label :アイコン画像
+              %span.formRequired-gray 任意
+              %br/
+              = j.file_field :image, required: true
+
+          -#   // お名前（全角）
+          -#   .deviseForm__field-half
+          -#     = j.label :お名前（全角）
+          -#     %span.formRequired 必須
+          -#     %br/
+          -#     = j.text_field :first_name, autofocus: true, autocomplete: "off", placeholder: "例）山田", class: "inputField", required: true
+          -#     = j.text_field :last_name, autofocus: true, autocomplete: "off", placeholder: "例）太郎", class: "inputField", required: true
+
+          -#   // お名前カナ
+          -#   .deviseForm__field-half
+          -#     = j.label :お名前カナ（全角）
+          -#     %span.formRequired 必須
+          -#     %br/
+          -#     = j.text_field :first_name_kana, autofocus: true, autocomplete: "off", placeholder: "例）ヤマダ", class: "inputField", required: true
+          -#     = j.text_field :last_name_kana, autofocus: true, autocomplete: "off", placeholder: "例）タロウ", class: "inputField", required: true
+
+          -#   // 生年月日
+          -#   .deviseForm__field-birthday
+          -#     = j.label :生年月日
+          -#     %span.formRequired 必須
+          -#     %br/
+          -#     -# = f.date_select :nickname,use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 18), default: Date.new(1989, 1, 1), class: "select-box", autofocus: true, required: true
+          -#     -# = f.datetime_select(:nickname, class: "select-box", autofocus: true, required: true use_month_numbers: true, date_separator: '%s', datetime_separator: '%s'), '年', '月', '日'
+          -#     != sprintf(j.date_select(:birthday, class:'inputField', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+
+          // 本人確認の注意文
+          .confirmation_expression
+            -# .confirmation_expression__title
+            -#   本人確認
+            .confirmation_expression__text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+          -# // recapcha
+          -# .recaptcha
+          -#   = recaptcha_tags
+
+
+          // 次へ進むの注意文
+          .cortion-text
+            「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+
+
+
+          = f.submit "登録", class: "deviseBtn"
+  
+  -# =render "devise/shared/footer"

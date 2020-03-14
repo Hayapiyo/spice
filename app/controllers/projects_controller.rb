@@ -20,9 +20,13 @@ class ProjectsController < ApplicationController
 
   def contract
     @project = Project.find(params[:id])
-    @project.contractor_id = current_user.id
-    @project.save if @project.user_id != current_user.id && @project.contractor_id != null
-    redirect_to root_path
+    if @project.contractor_id || @project.user == current_user
+      redirect_to root_path
+    else
+      @project.contractor_id = current_user.id
+      @project.save
+      # redirect_to root_path
+    end
   end
 
   private

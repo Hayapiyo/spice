@@ -37,8 +37,8 @@
         font-weight: bold;
       }
       .title {
-        padding: 32px 16px;
-        font-size: 22px;
+        padding: 32px 16px 10px 16px;
+        font-size: 25px;
         text-align: center;
         font-weight: bold;
         &--narrow {
@@ -55,6 +55,14 @@
             color: $white;
             text-decoration: none;
           }
+        }
+      }
+      .to-registration {
+        text-align: center;
+        margin-bottom: 20px;
+        a {
+          font-size: 14px;
+          color: $pink;
         }
       }
       .deviseForm {
@@ -123,6 +131,10 @@
             }
             .formRequired {
               @include required();
+            }
+            .formRequired-gray {
+              @include required();
+              background-color: $gray;
             }
             .inputField {
               @include input();
@@ -221,10 +233,11 @@
       }
     }
     .confirmation_expression {
-      margin-top: 10px;
+      margin-top: 50px;
       &__title {
         font-size: 16px;
         font-weight: bold;
+        // margin-top: 20px;
       }
       &__text {
         font-size: 13px;
@@ -286,3 +299,41 @@
   }
 }
 //end
+
+
+.edit_user {
+  max-width: 320px;
+  margin: 0 auto;
+  .deviseForm__field {
+    @include form();
+    margin: 40px 0 0;
+    &--top {
+      margin: 0;
+    }
+    label {
+      @include label();
+    }
+    .formRequired {
+      @include required();
+    }
+    .inputField {
+      @include input();
+      &--small {
+        width: 80px;
+      }
+      &__select {
+        height: 50px;
+        width: 100%;
+      }
+    }
+    #user_profile_introduction {
+      height: 200px;
+    }
+  }
+ 
+}
+
+.formRequired-gray {
+  @include required();
+  background-color: $gray;
+}

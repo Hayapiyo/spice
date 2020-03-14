@@ -1,25 +1,37 @@
 .profile
   .profile__left
     .profile__left__image
+      - if current_user.profile
+        = image_tag current_user.profile.image.url
+      - else
+        = image_tag "avatar.jpg"
+
   .profile__right
     .profile__right__introduction
       .profile__right__introduction__title
         プロフィール
       .profile__right__introduction__description
-        ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+        - if current_user.profile
+          = current_user.profile.introduction
+        - else
+          自己紹介文はまだありません。
     .profile__right__projects
       受注実績
-      - current_user.projects.each do |project|
-        .project
-          .project__left
-            .project__left__title
-              = link_to project_path(project) do
-                = project.title
-            .project__left__description
-              = project.description
-            .projectp__left__user
-              = "#{project.user.name} さん"
-          .project__right
-            .project__right__price
-              = "#{project.price} 円"
+      - if @myprojects.any?
+        - @myprojects.each do |project|
+          .project
+            .project__left
+              .project__left__title
+                = link_to project_path(project) do
+                  = project.title
+              .project__left__description
+                = project.description
+              .projectp__left__user
+                = "#{project.user.name} さん"
+            .project__right
+              .project__right__price
+                = "#{project.price} 円"
+      - else
+        .notext
+          受注実績はまだありません。
         -# = render partial: 'projecs/project', locals: { project: project }

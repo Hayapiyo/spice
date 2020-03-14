@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 2020_03_08_003159) do
     t.string "address"
     t.string "image"
     t.string "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_003159) do
   add_foreign_key "group_users", "users"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "projects", "categories"
   add_foreign_key "projects", "users"
 end

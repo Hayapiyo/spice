@@ -1,0 +1,12 @@
+.chat-side
+  .groups
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group), style: "text-decoration: none;" do
+          .group__name
+            - group.users.each do |user|
+              - if user.id != current_user.id
+                = user.name
+                さんとのチャット
+          .group__message
+            = group.show_last_message

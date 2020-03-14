@@ -2,7 +2,7 @@
   -# = render "devise/shared/header"
   .deviseSection
     .inner
-      %h2.title 会員情報入力
+      %h2.title 新規会員登録
       .deviseForm
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           -# = devise_error_messages!
@@ -10,7 +10,7 @@
             = f.label :名前
             %span.formRequired 必須
             %br/
-            = f.text_field :name, autofocus: true, autocomplete: "off", placeholder: "例）メルカリ太郎", class: "inputField", required: true
+            = f.text_field :name, autofocus: true, autocomplete: "off", placeholder: "例）える子", class: "inputField", required: true
           .deviseForm__field
             = f.label :メールアドレス
             %span.formRequired 必須
@@ -84,6 +84,6 @@
 
 
 
-          = f.submit "次へ進む", class: "deviseBtn"
+          = f.submit "登録", class: "deviseBtn"
   
   -# =render "devise/shared/footer"

@@ -1,0 +1,66 @@
+.wrapper
+  = render partial: 'groups/chat_sidebar'
+
+  .chat-main
+    -# .main-header
+    -#   .main-header__left-box
+    -#     %h2.main-header__left-box__current-group
+    -#       -# = @group.name
+    -#     %ul.main-header__left-box__member-list
+    -#       Member:
+    -#       - @group.users.each do |user|   # 当該グループに属するユーザを取得し、
+    -#         = user.name                   # 1人ずつ名前を表示する
+    -#       %li.main-header__left-box__member-list__member
+    -#   = link_to edit_group_path(@group.id), data: {turbolinks: :false} do
+    -#     %button.main-header__edit-btn
+    -#       Edit
+
+    -# 以下、メッセージ部分を表示する
+    %ul.messages
+      .messages__title
+        チャット内容
+      - @group.messages.each do |message|     # 当該グループの全メッセージを取得し、一つずつ表示
+        - if message.user_id == current_user.id
+          %li.message{data: {id: message.id}}
+            .message__image
+              - if message.user.profile
+                = image_tag message.user.profile.image.url
+              - else
+                = image_tag "avatar.jpg"
+            .message__info
+              .message__info__talker
+                = message.user.name
+              .message__info__date
+                = message.created_at.strftime("%Y-%m-%d %H:%M")   # strftimeメソッドで、時刻表記を整える（%Y=Year, %m=month, %d=date, %H=Hour, %M=Minutes）
+              .message__info__text
+                = message.content
+              .message__info__image
+                = image_tag message.image.url if message.image.present?
+        -else
+          %li.you-message{data: {id: message.id}}
+            .you-message__info
+              .you-message__info__talker
+                = message.user.name
+              .you-message__info__date
+                = message.created_at.strftime("%Y-%m-%d %H:%M")   # strftimeメソッドで、時刻表記を整える（%Y=Year, %m=month, %d=date, %H=Hour, %M=Minutes）
+              .you-message__info__text
+                = message.content
+              .you-message__info__image
+                = image_tag message.image.url if message.image.present?
+            .you-message__image
+              - if message.user.profile
+                = image_tag message.user.profile.image.url
+              - else
+                = image_tag "avatar.jpg"
+
+
+    // 投稿フォームで入力された値は、messages_controllerへ飛ぶ。(何グループの投稿かを判別するために、@groupを引数にとる必要がある)
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            -# = icon("fa", "picture-o")
+            -# = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

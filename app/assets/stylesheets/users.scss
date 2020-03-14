@@ -7,9 +7,12 @@
     width: 200px;
     // padding-right: 20px;
     &__image {
-      background-color: gray;
+      img {
+      // background-color: gray;
       height: 200px;
       width: 200px;
+      object-fit: cover;
+    }
       // margin: 0 20px 0px 0;
     }
   }
@@ -26,7 +29,10 @@
       font-size: 20px;
       }
       &__description {
-
+        margin-top: 15px;
+        border: solid 1px $gray;
+        padding: 15px;
+        font-size: 15px;
       }
 
     }
@@ -85,4 +91,11 @@
       }
     }
   }
+}
+
+
+.notext {
+  font-size: 15px;
+  font-weight: normal;
+  padding-top: 10px;
 }
