@@ -21,23 +21,12 @@
         チャット内容
       - @group.messages.each do |message|     # 当該グループの全メッセージを取得し、一つずつ表示
         - if message.user_id == current_user.id
-          %li.message{data: {id: message.id}}
-            .message__image
-              - if message.user.profile
-                = image_tag message.user.profile.image.url
-              - else
-                = image_tag "avatar.jpg"
-            .message__info
-              .message__info__talker
-                = message.user.name
-              .message__info__date
-                = message.created_at.strftime("%Y-%m-%d %H:%M")   # strftimeメソッドで、時刻表記を整える（%Y=Year, %m=month, %d=date, %H=Hour, %M=Minutes）
-              .message__info__text
-                = message.content
-              .message__info__image
-                = image_tag message.image.url if message.image.present?
-        -else
           %li.you-message{data: {id: message.id}}
+            -# .you-message__image
+            -#   - if message.user.profile
+            -#     = image_tag message.user.profile.image.url
+            -#   - else
+            -#     = image_tag "avatar.jpg"
             .you-message__info
               .you-message__info__talker
                 = message.user.name
@@ -47,7 +36,18 @@
                 = message.content
               .you-message__info__image
                 = image_tag message.image.url if message.image.present?
-            .you-message__image
+        -else
+          %li.message{data: {id: message.id}}
+            .message__info
+              .message__info__talker
+                = message.user.name
+              .message__info__date
+                = message.created_at.strftime("%Y-%m-%d %H:%M")   # strftimeメソッドで、時刻表記を整える（%Y=Year, %m=month, %d=date, %H=Hour, %M=Minutes）
+              .message__info__text
+                = message.content
+              .message__info__image
+                = image_tag message.image.url if message.image.present?
+            .message__image
               - if message.user.profile
                 = image_tag message.user.profile.image.url
               - else

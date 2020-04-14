@@ -21,10 +21,10 @@
         = @project.description
 
   - if @project.user.id != current_user.id
-    = link_to contract_project_path, method: :put do
+    = link_to groups_path(@project.id), method: :post do
       .work-submit
         応募する
 
-    = link_to groups_path(@project.id), method: :post do
-      .work-submit
-        メッセージを送る
+    -# = link_to groups_path(@project.id), method: :post do
+    -#   .work-submit
+    -#     メッセージを送る

@@ -110,7 +110,7 @@
 
 
 .you-message {
-  float: right;
+  // float: right;
   // min-width: 300px;
   // width: 400px;
   display: flex;
@@ -147,6 +147,7 @@
       font-size: 13px;
       min-height: 30px;
       min-width: 100px;
+      max-width: 300px;
   }
     &__image {
       // margin-top: 10px;
